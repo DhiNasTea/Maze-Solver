@@ -1,6 +1,9 @@
+from typing import List, Any
+
 import pygame
 from parameters import Settings
 from enum_utils import *
+from parameters import Event
 
 settings = Settings()
 
@@ -23,22 +26,54 @@ class Square:
                                      top_y + self.y_pos * self.width,
                                      settings.sq_width, settings.sq_width)
 
-    def on_click(self):
-        global game_state
-        # Nothing should happen on click
-        if game_state == SelectionState.choosing_nothing:
+    """
+    We are assuming the logic that prevents multiple squares
+    from being a type that should be unique is implemented in the caller
+    """
+    def on_click(self, bt_dashboard_state):
+        # TODO: have a function that changes the squarestate
+        if bt_dashboard_state == SelectionState.choosing_nothing:
             return
 
+        # We are forcing squares back to default
+        elif bt_dashboard_state == SelectionState.choosing_default:
+            self.state = SquareState.default
+            self.color = settings.sq_color_default
+
         # We are selecting the starting point
-        if self.state == SquareState.selected:
-            self.state = SquareState.default
-            self.color = self.color_def
-        elif self.state == SquareState.default:
-            self.state = SquareState.selected
-            self.color = self.color_cli
+        elif bt_dashboard_state == SelectionState.choosing_start:
+            # We are un-selecting the start square
+            if self.state == SquareState.start:
+                self.state = SquareState.default
+                self.color = settings.sq_color_default
+            # We are selecting a start square
+            else:
+                self.state = SquareState.start
+                self.color = settings.sq_color_start
+
+        elif bt_dashboard_state == SelectionState.choosing_end:
+            # We are un-selecting the end square
+            if self.state == SquareState.end:
+                self.state = SquareState.default
+                self.color = settings.sq_color_default
+            # We are selecting an end square
+            else:
+                self.state = SquareState.end
+                self.color = settings.sq_color_end
+
+        elif bt_dashboard_state == SelectionState.choosing_obstacle_mid:
+            # We are un-selecting an obstacle
+            if self.state == SquareState.obstacle_mid:
+                self.state = SquareState.default
+                self.color = settings.sq_color_default
+            # We are selecting a mid obstacle
+            else:
+                self.state = SquareState.obstacle_mid
+                self.color = settings.sq_color_obstacle_mid
+        # Unknown
         else:
-            self.state = SquareState.default
-            self.color = self.color_def
+            print("Unknown SelectionState in Button.onClick()")
+
 
 class Board:
 
@@ -47,6 +82,8 @@ class Board:
 
         self.height = height
         self.width = width
+
+        self.curr_start_square, self.curr_end_square = None, None
 
         # To iterate over the squares, the first
         # for loop will give us horizontal rows
@@ -65,17 +102,33 @@ class Board:
                 row.append(square)
             self.squares.append(row)
 
+    def clear_square(self, row, column):
+        self.squares[row][column].on_click(SelectionState.choosing_default)
+
     def show(self):
         """Draw the board on the screen."""
         for row in self.squares:
             for square in row:
                 pygame.draw.rect(self.screen, square.color, square.rectangle)
 
-    def check_click(self, x_pos, y_pos):
-        """Determine if a square was clicked on"""
-        global game_state
+    def check_click(self, event):
+        """Determine if a square was clicked on
+        :type event: Event
+        """
         for row in self.squares:
             for square in row:
-                if square.collidepoint(x_pos, y_pos):
-                    square.on_click(game_state)
+                if square.rectangle.collidepoint(event.x_pos, event.y_pos):
+                    # Making sure there's only one start square
+                    if event.bt_state == SelectionState.choosing_start:
+                        if self.curr_start_square is not None and self.curr_start_square.state == SquareState.start:
+                            self.clear_square(self.curr_start_square.y_pos, self.curr_start_square.x_pos)
+                        self.curr_start_square = square
+
+                    # Making sure there's only one end square
+                    elif event.bt_state == SelectionState.choosing_end:
+                        if self.curr_end_square is not None and self.curr_end_square.state == SquareState.end:
+                            self.clear_square(self.curr_end_square.y_pos, self.curr_end_square.x_pos)
+                        self.curr_end_square = square
+
+                    square.on_click(event.bt_state)
                     return

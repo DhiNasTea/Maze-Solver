@@ -6,6 +6,7 @@ from parameters import Settings
 import pygame
 from board import Board
 
+
 class Vertex:
     def __init__(self, square_state):
         """
@@ -23,6 +24,7 @@ class Vertex:
         # We are getting the row and column from the vertex number
         # true_row = (num - 1) // self.height  # height == nb. rows
         # true_width = (num - 1) % self.width  # width = nb. columns
+
 
 class Dijkstra:
     def __init__(self, board, settings):
@@ -49,9 +51,8 @@ class Dijkstra:
             # Populate grid
             self.populate(vertex)
 
-
-
     # Returns, vertices neighbours to the one given
+    # Tested this, in theory
     def neighbours(self, x_pos, y_pos):
         if not (0 <= x_pos < self.width and 0 <= y_pos < self.height):
             return None
@@ -70,6 +71,7 @@ class Dijkstra:
 
         return neighbours
 
+    # TODO: test this
     def populate(self, vertex):
         # Get all neighbours
         true_row = vertex // self.height  # height == nb. rows
@@ -99,6 +101,21 @@ class Dijkstra:
             else:
                 self.grid[vertex][neighbour_vertex] = 1
 
+    def minDistance(self, dist, spt_set):
+
+        # Initialize minimum distance for next node
+        min_start = sys.maxsize
+
+        min_index = -1
+
+        # Search not nearest vertex not in the
+        # shortest path tree
+        for v in range(self.V):
+            if dist[v] < min_start and spt_set[v] == False:
+                min_start = dist[v]
+                min_index = v
+
+        return min_index
 
 
 # Testing

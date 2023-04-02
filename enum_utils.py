@@ -53,3 +53,44 @@ class SelectionState:
 
     # Selected square is not reachable
     choosing_wall = 9
+
+    # Selected square should be back to default
+    choosing_default = 10
+
+class ButtonState:
+    """Enum for all the possible states for a button in the game"""
+
+    # All buttons start as default
+    default = 1
+
+    # Enables starting point selection
+    button_start = 2
+
+    # Enables ending point selection
+    button_end = 3
+
+    # Enables obstacle selection
+    button_obstacles = 4
+
+    # Makes the algorithm find the shortest path
+    button_find_path = 5
+
+    # Resets the board
+    button_reset = 6
+
+
+# TODO: make this a class
+def button_state_to_selection_state(button_state):
+    if button_state == ButtonState.default:
+        return SelectionState.choosing_default
+    elif button_state == ButtonState.button_start:
+        return SelectionState.choosing_start
+    elif button_state == ButtonState.button_end:
+        return SelectionState.choosing_end
+    # TODO: update this for diff types of obstacles
+    elif button_state == ButtonState.button_obstacles:
+        return SelectionState.choosing_obstacle_mid
+
+    # The current state is not implemented, do nothing
+    return SelectionState.choosing_nothing
+
