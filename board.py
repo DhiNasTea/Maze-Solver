@@ -4,11 +4,17 @@ import pygame
 from parameters import Settings
 from enum_utils import *
 from parameters import Event
+from algos import Dijkstra
 
 settings = Settings()
 
 class Square:
+
     def __init__(self, x, y, width, color_def=settings.sq_color_default, color_cli=settings.sq_color_clicked):
+        """
+        :type x: int => the column starting at 1
+        :type y: int => the row starting at 1
+        """
         self.x_pos = x - 1
         self.y_pos = y - 1
         self.width = width
@@ -132,3 +138,21 @@ class Board:
 
                     square.on_click(event.bt_state)
                     return
+
+    def solve(self):
+        vertex_start = self.curr_start_square.x_pos + self.width * self.curr_start_square.y_pos
+        algo = Dijkstra(self, settings)
+        algo.solve(vertex_start)
+
+        # Draw the path :)
+        vertex_end = self.curr_end_square.x_pos + self.width * self.curr_end_square.y_pos
+
+        curr_vertex = algo.grid[vertex_end][0]
+        path = [vertex_end]
+        while curr_vertex.previous is not None:
+            path.append(curr_vertex.previous)
+            curr_vertex = algo.grid[curr_vertex.previous][0]
+
+        # print(path)
+
+        # We will make all the square in between green

@@ -110,3 +110,5 @@ class ButtonGroup:
         for button in self.buttons:
             if button.rectangle.collidepoint(event.x_pos, event.y_pos):
                 self.selection_state = button_state_to_selection_state(button.button_type)
+
+

@@ -40,6 +40,22 @@ def run_game():
         # Check for mouse clicks
         check_button_click(components, button_dashboard.selection_state)
 
+        # Check if the maze is to be solved
+        if button_dashboard.selection_state == SelectionState.choosing_final_path:
+            board.solve()
+            button_dashboard.selection_state = SelectionState.choosing_nothing
+        # Restarting the board
+        elif button_dashboard.selection_state == SelectionState.choosing_reset:
+            components = []
+
+            board = Board(screen, settings.board_width, settings.board_height)
+            components.append(board)
+
+            button_dashboard = ButtonGroup(screen)
+            components.append(button_dashboard)
+
+            button_dashboard.selection_state = SelectionState.choosing_nothing
+
         # Refresh screen.
         pygame.display.flip()
 

@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dea2b301-395f-4e80-b36e-421dbef1841a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/buttons.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/algos.py" beforeDir="false" afterPath="$PROJECT_DIR$/algos.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buttons.py" beforeDir="false" afterPath="$PROJECT_DIR$/buttons.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/enum_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/enum_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/events.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maze.py" beforeDir="false" afterPath="$PROJECT_DIR$/maze.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/parameters.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +112,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="396" y="144" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1679069129390" />
+    <state x="275" y="0" key="CommitChangelistDialog2" timestamp="1680474052288">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="275" y="0" key="CommitChangelistDialog2/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1680474052288" />
     <state width="1259" height="161" key="GridCell.Tab.0.bottom" timestamp="1679978539010">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -143,10 +145,10 @@
     </state>
     <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1679888619147" />
     <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1679248272980" />
-    <state x="2873" y="0" width="974" height="1047" key="dock-window-1" timestamp="1680459898372">
+    <state x="2873" y="0" width="974" height="1047" key="dock-window-1" timestamp="1680472323794">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2873" y="0" width="974" height="1047" key="dock-window-1/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1680459898372" />
+    <state x="2873" y="0" width="974" height="1047" key="dock-window-1/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1680472323794" />
     <state x="-5" y="0" width="974" height="687" key="dock-window-1/0.0.1280.680@0.0.1280.680" timestamp="1680321902251" />
     <state x="1913" y="0" width="974" height="1047" key="dock-window-2" timestamp="1680467749064">
       <screen x="1920" y="0" width="1920" height="1040" />

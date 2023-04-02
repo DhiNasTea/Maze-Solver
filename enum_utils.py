@@ -57,6 +57,9 @@ class SelectionState:
     # Selected square should be back to default
     choosing_default = 10
 
+    # Reset is needed
+    choosing_reset = 11
+
 class ButtonState:
     """Enum for all the possible states for a button in the game"""
 
@@ -90,6 +93,10 @@ def button_state_to_selection_state(button_state):
     # TODO: update this for diff types of obstacles
     elif button_state == ButtonState.button_obstacles:
         return SelectionState.choosing_obstacle_mid
+    elif button_state == ButtonState.button_find_path:
+        return SelectionState.choosing_final_path
+    elif button_state == ButtonState.button_reset:
+        return SelectionState.choosing_reset
 
     # The current state is not implemented, do nothing
     return SelectionState.choosing_nothing
