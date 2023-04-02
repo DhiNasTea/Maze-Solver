@@ -76,6 +76,9 @@ class Square:
             else:
                 self.state = SquareState.obstacle_mid
                 self.color = settings.sq_color_obstacle_mid
+        elif bt_dashboard_state == SelectionState.choosing_final_path:
+            self.state = SquareState.path
+            self.color = settings.sq_color_path
         # Unknown
         else:
             print("Unknown SelectionState in Button.onClick()")
@@ -110,6 +113,12 @@ class Board:
 
     def clear_square(self, row, column):
         self.squares[row][column].on_click(SelectionState.choosing_default)
+
+    def highlight_path(self, vertex):
+        column = vertex % self.width
+        row = vertex // self.width
+
+        self.squares[row][column].on_click(SelectionState.choosing_final_path)
 
     def show(self):
         """Draw the board on the screen."""
@@ -153,6 +162,11 @@ class Board:
             path.append(curr_vertex.previous)
             curr_vertex = algo.grid[curr_vertex.previous][0]
 
-        # print(path)
+        print(path)
 
         # We will make all the square in between green
+        if len(path) > 2:
+            path = path[1:-1] # removing the start and end vertices
+
+            for vertex in path:
+                self.highlight_path(vertex)
