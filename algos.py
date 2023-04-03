@@ -56,9 +56,13 @@ class Dijkstra:
             # Populate grid
             self.populate(vertex)
 
-    # Returns, vertices neighbours to the one given
-    # Tested this, in theory
     def neighbours(self, x_pos, y_pos):
+        """
+        We'll only consider vertical and horizontal neighbours to avoid weird looking
+        shortest paths
+        :type x_pos: int column
+        :type y_pos: int row
+        """
         if not (0 <= x_pos < self.width and 0 <= y_pos < self.height):
             return None
 
@@ -71,7 +75,7 @@ class Dijkstra:
         column_limit = self.width - 1
         for y in range(max(0, x_pos - 1), min(x_pos + 1, column_limit) + 1):
             for x in range(max(0, y_pos - 1), min(y_pos + 1, row_limit) + 1):
-                if x != x_pos or y != y_pos:
+                if (y != x_pos and x == y_pos) or (y == x_pos and x != y_pos):
                     neighbours.append([x, y])
 
         return neighbours

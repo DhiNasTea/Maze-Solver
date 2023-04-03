@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dea2b301-395f-4e80-b36e-421dbef1841a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algos.py" beforeDir="false" afterPath="$PROJECT_DIR$/algos.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +132,10 @@
     </state>
     <state width="1259" height="161" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1679978539010" />
     <state width="1259" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1679160337957" />
+    <state x="382" y="52" key="RollbackChangesDialog" timestamp="1680482264404">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="382" y="52" key="RollbackChangesDialog/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1680482264404" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1679889346832">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
