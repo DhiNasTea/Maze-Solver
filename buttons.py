@@ -90,7 +90,7 @@ class ButtonGroup:
             self.buttons.append(Button("End", glob_settings, self.screen, ButtonState.button_end, curr_x, curr_y))
             curr_x += glob_settings.bt_width + glob_settings.bt_x_gap
 
-            self.buttons.append(Button("Obstacles", glob_settings, self.screen, ButtonState.button_obstacles, curr_x, curr_y))
+            self.buttons.append(Button("Obstacle", glob_settings, self.screen, ButtonState.button_obstacles, curr_x, curr_y))
             curr_x += glob_settings.bt_width + glob_settings.bt_x_gap
 
             self.buttons.append(Button("Wall", glob_settings, self.screen, ButtonState.button_wall, curr_x, curr_y))

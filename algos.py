@@ -163,7 +163,7 @@ class Dijkstra:
                     dist[v] = dist[u] + self.grid[u][v].distance
                     self.grid[v][0].previous = u
 
-        self.printSolution(dist)
+        # self.printSolution(dist)
 
     def __str__(self):
         ret_str = "Printing the distance matrix:\n"
