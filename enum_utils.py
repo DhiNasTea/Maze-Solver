@@ -75,11 +75,14 @@ class ButtonState:
     # Enables obstacle selection
     button_obstacles = 4
 
+    # Enables wall selection
+    button_wall = 5
+
     # Makes the algorithm find the shortest path
-    button_find_path = 5
+    button_find_path = 6
 
     # Resets the board
-    button_reset = 6
+    button_reset = 7
 
 
 # TODO: make this a class
@@ -93,6 +96,8 @@ def button_state_to_selection_state(button_state):
     # TODO: update this for diff types of obstacles
     elif button_state == ButtonState.button_obstacles:
         return SelectionState.choosing_obstacle_mid
+    elif button_state == ButtonState.button_wall:
+        return SelectionState.choosing_wall
     elif button_state == ButtonState.button_find_path:
         return SelectionState.choosing_final_path
     elif button_state == ButtonState.button_reset:

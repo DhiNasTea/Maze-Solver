@@ -93,10 +93,14 @@ class ButtonGroup:
             self.buttons.append(Button("Obstacles", glob_settings, self.screen, ButtonState.button_obstacles, curr_x, curr_y))
             curr_x += glob_settings.bt_width + glob_settings.bt_x_gap
 
+            self.buttons.append(Button("Wall", glob_settings, self.screen, ButtonState.button_wall, curr_x, curr_y))
+            curr_x += glob_settings.bt_width + glob_settings.bt_x_gap
+
             self.buttons.append(Button("Find Path", glob_settings, self.screen, ButtonState.button_find_path, curr_x, curr_y))
             curr_x += glob_settings.bt_width + glob_settings.bt_x_gap
 
             self.buttons.append(Button("Reset", glob_settings, self.screen, ButtonState.button_reset, curr_x, curr_y))
+            curr_x += glob_settings.bt_width + glob_settings.bt_x_gap
 
     def show(self):
         for button in self.buttons:

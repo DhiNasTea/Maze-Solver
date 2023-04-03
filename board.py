@@ -76,6 +76,15 @@ class Square:
             else:
                 self.state = SquareState.obstacle_mid
                 self.color = settings.sq_color_obstacle_mid
+        elif bt_dashboard_state == SelectionState.choosing_wall:
+            # We are un-selecting a wall
+            if self.state == SquareState.wall:
+                self.state = SquareState.default
+                self.color = settings.sq_color_default
+            # We are selecting a wall
+            else:
+                self.state = SquareState.wall
+                self.color = settings.sq_color_wall
         elif bt_dashboard_state == SelectionState.choosing_final_path:
             self.state = SquareState.path
             self.color = settings.sq_color_path

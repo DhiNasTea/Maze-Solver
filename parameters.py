@@ -34,10 +34,11 @@ class Settings:
         self.sq_color_obstacle_mid = self.gray
         self.sq_color_obstacle_low = self.pewter
         self.sq_color_path = self.green_path
+        self.sq_color_wall = self.color_black
         self.sq_width = 50
 
         # Board width and height
-        self.board_width = 16
+        self.board_width = 17
         self.board_height = 8
         self.board_topx = self.sq_width
         self.board_topy = self.sq_width
