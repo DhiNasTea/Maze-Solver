@@ -7,6 +7,17 @@ to find the shortest path in a graph. The algorithm keeps track of the preceding
 and uses that traversal history to create the most efficient path from a starting point
 to anywhere in the board
 
+## Installation
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the necessary dependencies
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+```bash
+python maze.py
+```
+
 ## Additional features
 
 Walls and obstacles can be added by the user in order to limit the choices available to the 
@@ -27,13 +38,3 @@ In this example, traversing the obstacle will produce a shorter path:
 
 ![Maze with obstacles solution](images/snapshot_obst_path.png)
 
-## Installation
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the necessary dependencies
-```bash
-pip install -r requirements.txt
-```
-
-## Usage
-```bash
-python maze.py
-```
